@@ -1,9 +1,11 @@
 package org.wadzapi;
 
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
-@ManagedBean(name = "helloCdi")
+@Named
+@RequestScoped
 public class HelloCDIBean {
 
     public String getHello() {
