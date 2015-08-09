@@ -1,0 +1,7 @@
+.idea/
+*.iml
+target/
+node_modules.tar
+npm-debug.log
+polymer/
+target-grunt/
