@@ -20,16 +20,51 @@
 body {
     background-color: rgb(0, 35, 75);
     font-family: tahoma, arial, helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
+    color: antiquewhite
 }
 
 #container {
     margin: 10px auto;
     width: 900px;
-    background-color: white;
     padding: 3px;
 }
 
-h1 {
-    font-size: 20px;
+/*Стили заголовка (позаимствованы https://css-tricks.com/oprah-burst-title-thing/)*/
+h1#mainTitle {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding: 1px;
+    font-family: 'Raleway', cursive;
+    font-weight: 100;
+    position: relative;
+    background: -webkit-linear-gradient(left, black, #eee, black);
+    background: -moz-linear-gradient(left, black, #eee, black);
+    background: -ms-linear-gradient(left, black, #eee, black);
+    background: -o-linear-gradient(left, black, #eee, black);
+}
+/*TODO Разобраться почему не работает с before-элементом*/
+h 1#mainTitle:before {
+       content: "";
+       position: absolute;
+       left: 50%;
+       top: -50px;
+       width: 600px;
+       margin-left: -300px;
+       margin-top: -220px;
+       height: 600px;
+       background: -webkit-radial-gradient(50% 50%, ellipse closest-side, #444, black);
+       background: -moz-radial-gradient(50% 50%, ellipse closest-side, #444, black);
+       background: -ms-radial-gradient(50% 50%, ellipse closest-side, #444, black);
+       background: -o-radial-gradient(50% 50%, ellipse closest-side, #444, black);
+       z-index: -1;
+   }
+.h1#mainTitle a {
+    background: black;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    letter-spacing: 30px;
+    color: white;
 }

@@ -20,14 +20,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-<f:loadBundle var="hello_cdi" basename="org.wadzapi.hello_cdi_world"/>
-<h:form prependId="false">
-    <h1>Форма залогиненного пользователя</h1>
-    <h:panelGroup rendered="#{login.loggedIn}">
-        signed in as #{currentUser.username}
-    </h:panelGroup>
-    <h:link value="#{hello_cdi.back}" outcome="loginForm.xhtml"/>
-</h:form>
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/mainTemplate.xhtml">
+    <h:form prependId="false">
+        <h:panelGroup styleClass="h1">Форма залогиненного пользователя</h:panelGroup>
+        <h:panelGroup rendered="#{login.loggedIn}">
+            signed in as #{currentUser.username}
+        </h:panelGroup>
+        <h:link value="#{hello_cdi.back}" outcome="loginForm.xhtml"/>
+    </h:form>
+</ui:composition>
 </html>

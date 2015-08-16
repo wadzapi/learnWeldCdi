@@ -19,6 +19,11 @@ import java.util.List;
  */
 public class Login implements Serializable {
 
+    /**
+     *
+     */
+    private static final String LOGGED_USER_PAGE="page.xhtml";
+
     @Inject Credentials credentials;
 
     @Inject
@@ -29,7 +34,7 @@ public class Login implements Serializable {
     private User user;
 
 
-    public void login() {
+    public String login() {
 
         List<User> results = userDatabase.createQuery(
                 "select u from User u where u.login = :login and u.password = :password")
@@ -42,6 +47,7 @@ public class Login implements Serializable {
         else {
             // perhaps add code here to report a failed login
         }
+        return LOGGED_USER_PAGE;
     }
 
 

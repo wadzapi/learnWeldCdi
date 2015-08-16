@@ -22,11 +22,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
-<ui:composition template="mainTemplate.xhtml">
-<!--    <ui:define name="content">
-    </ui:define>-->
-    <h:panelGroup id="buttons" styleClass="dblock">
-        <h:link outcome="loginForm" value="Вход"/>
-    </h:panelGroup>
-</ui:composition>
+<f:loadBundle var="helloCdi" basename="org.wadzapi.hello_cdi_world"/>
+<h:head>
+    <ui:insert name="header">
+        <ui:insert name="scripts">
+            <h:outputStylesheet name="style.css" library="css"/>
+            <h:outputScript library="js" value="jquery-2.1.1.js"/>
+            <h:outputScript library="js" value="jquery-ui.min.js"/>
+        </ui:insert>
+        <ui:insert name="title">
+            <title>
+                <h:outputText value="#{helloCdi.helloCDIWorld}"/>
+            </title>
+        </ui:insert>
+    </ui:insert>
+</h:head>
+<h:body>
+    <div id="container">
+        <div id="page-wrap">
+            <h1 id="mainTitle">
+                <h:outputLink value="/index.xhtml">
+                    #{helloCdi.helloCDIWorld}
+                </h:outputLink>
+            </h1>
+            <ui:insert name="content">
+                #{helloCDIBean.hello}
+            </ui:insert>
+        </div>
+    </div>
+</h:body>
 </html>
