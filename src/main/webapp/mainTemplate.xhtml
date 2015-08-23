@@ -24,12 +24,11 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
 <f:loadBundle var="helloCdi" basename="org.wadzapi.hello_cdi_world"/>
 <h:head>
+    <h:outputStylesheet name="style.css" library="css"/>
+    <h:outputScript library="js" value="jquery-2.1.1.js"/>
+    <h:outputScript library="js" value="jquery-ui.min.js"/>
+    <ui:insert name="scripts"></ui:insert>
     <ui:insert name="header">
-        <ui:insert name="scripts">
-            <h:outputStylesheet name="style.css" library="css"/>
-            <h:outputScript library="js" value="jquery-2.1.1.js"/>
-            <h:outputScript library="js" value="jquery-ui.min.js"/>
-        </ui:insert>
         <ui:insert name="title">
             <title>
                 <h:outputText value="#{helloCdi.helloCDIWorld}"/>
@@ -41,7 +40,7 @@
     <div id="container">
         <div id="page-wrap">
             <h1 id="mainTitle">
-                <h:outputLink value="/index.xhtml">
+                <h:outputLink value="#{facesContext.externalContext.requestContextPath}/index.jsf">
                     #{helloCdi.helloCDIWorld}
                 </h:outputLink>
             </h1>

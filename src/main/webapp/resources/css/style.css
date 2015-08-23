@@ -21,7 +21,10 @@ body {
     background-color: rgb(0, 35, 75);
     font-family: tahoma, arial, helvetica, sans-serif;
     font-size: 14px;
-    color: antiquewhite
+}
+
+body,a {
+    color: antiquewhite;
 }
 
 #container {
@@ -45,7 +48,7 @@ h1#mainTitle {
     background: -o-linear-gradient(left, black, #eee, black);
 }
 /*TODO Разобраться почему не работает с before-элементом*/
-h 1#mainTitle:before {
+h1#mainTitle:before {
        content: "";
        position: absolute;
        left: 50%;
@@ -60,7 +63,7 @@ h 1#mainTitle:before {
        background: -o-radial-gradient(50% 50%, ellipse closest-side, #444, black);
        z-index: -1;
    }
-.h1#mainTitle a {
+h1#mainTitle a {
     background: black;
     display: block;
     padding: 20px;
