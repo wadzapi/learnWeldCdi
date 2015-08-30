@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-    <Resource name="BeanManager"
+    <!-- TODO Разобраться с настройкой под Tomcat 7 -->
+<!--    <Resource name="BeanManager"
               auth="Container"
               type="javax.enterprise.inject.spi.BeanManager"
-              factory="org.jboss.weld.resources.ManagerObjectFactory"/>
-    <Resource name="jdbc/TestWeldDb" auth="Container" type="javax.sql.DataSource"
+              factory="org.jboss.weld.resources.ManagerObjectFactory"/>-->
+<!--    <Resource name="jdbc/TestWeldDb" auth="Container" type="javax.sql.DataSource"
               maxActive="100" maxIdle="30" maxWait="10000"
               username="testweld01" password="changeit" driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:postgresql://localhost:5432/testweld01"/>
+              url="jdbc:postgresql://localhost:5432/testweld01"/>-->
 </Context>

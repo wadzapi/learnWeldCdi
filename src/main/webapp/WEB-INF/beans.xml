@@ -6,5 +6,7 @@
         bean-discovery-mode="annotated">
     <interceptors></interceptors>
     <decorators></decorators>
-    <alternatives></alternatives>
+    <alternatives>
+        <!--          <class>org.jboss.weld.examples.login.EJBUserManager</class> -->
+    </alternatives>
 </beans>

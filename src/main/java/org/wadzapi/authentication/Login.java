@@ -1,70 +1,52 @@
 package org.wadzapi.authentication;
 
-import org.wadzapi.qualifiers.LoggedIn;
-import org.wadzapi.qualifiers.UserDatabase;
-
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.util.List;
 
 @SessionScoped
 @Named
-
-/**
- * {@see http://docs.jboss.org/weld/reference/latest-2.2/en-US/html/example.html}
- */
 public class Login implements Serializable {
-
-    /**
-     *
-     */
-    private static final String LOGGED_USER_PAGE="page.xhtml";
-
-    @Inject Credentials credentials;
-
     @Inject
-    @UserDatabase
-    EntityManager userDatabase;
+    private Credentials credentials;
 
+    @PersistenceContext
+    private EntityManager userDatabase;
 
-    private User user;
+    private User currentUser;
 
+    @SuppressWarnings("unchecked")
+    public void login() {
 
-    public String login() {
+        List<User> results = userDatabase.createQuery("select u from users u where u.username=:username and u.password=:password").setParameter("username", credentials.getUsername()).setParameter("password", credentials.getPassword()).getResultList();
 
-        List<User> results = userDatabase.createQuery(
-                "select u from User u where u.login = :login and u.password = :password")
-                .setParameter("login", credentials.getLogin())
-                .setParameter("password", credentials.getPassword())
-                .getResultList();
         if (!results.isEmpty()) {
-            user = results.get(0);
+            currentUser = results.get(0);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Welcome, " + currentUser.getName()));
         }
-        else {
-            // perhaps add code here to report a failed login
-        }
-        return LOGGED_USER_PAGE;
-    }
 
+    }
 
     public void logout() {
-        user = null;
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Goodbye, " + currentUser.getName()));
+        currentUser = null;
     }
-
 
     public boolean isLoggedIn() {
-        return user != null;
+        return currentUser != null;
     }
-
 
     @Produces
     @LoggedIn
-    User getCurrentUser() {
-        return user;
+    public User getCurrentUser() {
+        return currentUser;
     }
 
 }

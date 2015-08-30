@@ -99,23 +99,68 @@
     <!-- Project dependencies -->
     <dependencies>
 
+        <!-- Зависимости под jBoss AS 7 -->
         <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>1.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <scope>provided</scope>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.spec.javax.transaction</groupId>
+            <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.spec.javax.annotation</groupId>
+            <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+<!-- TODO Разобраться с зависимостями под Tomcat 7 -->
+<!--        <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-el-api</artifactId>
             <version>7.0.61</version>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-annotations-api</artifactId>
             <version>7.0.61</version>
             <scope>provided</scope>
         </dependency>
-        
-        <!-- JSF API: Add here as provided dependency and then add it
+
+        &lt;!&ndash; JSF API: Add here as provided dependency and then add it
              on jetty-maven-plugin as compile/runtime dependency.
-             The same goes for other JSF libraries. -->
+             The same goes for other JSF libraries. &ndash;&gt;
         <dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-api</artifactId>
@@ -142,7 +187,7 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
 <!-- Раскоментировать после реализации юнит-тестов -->
 <!--        <dependency>
@@ -174,7 +219,7 @@
             <scope>test</scope>
         </dependency>-->
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-api</artifactId>
             <version>${jsf-myfaces.version}</version>
@@ -187,7 +232,7 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- Log4j over sjf4j dependencies -->
+        &lt;!&ndash; Log4j over sjf4j dependencies &ndash;&gt;
         <dependency>
            <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -212,12 +257,12 @@
             <version>2.3</version>
         </dependency>
 
-        <!-- Weld CDI Dependencies -->
+        &lt;!&ndash; Weld CDI Dependencies &ndash;&gt;
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
             <version>1.2</version>
-            <!--<scope>provided</scope>-->
+            &lt;!&ndash;<scope>provided</scope>&ndash;&gt;
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
@@ -226,7 +271,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Зависимости Bean Validation API (реализован Hibernate Validator) -->
+        &lt;!&ndash; Зависимости Bean Validation API (реализован Hibernate Validator) &ndash;&gt;
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -243,7 +288,7 @@
             <version>7.0</version>
         </dependency>
 
-        <!-- JPA2 Hibernate EntityManager -->
+        &lt;!&ndash; JPA2 Hibernate EntityManager &ndash;&gt;
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -253,6 +298,6 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>3.5.1-Final</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>

@@ -1,35 +1,45 @@
 package org.wadzapi.authentication;
 
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
-/**
- * {@see http://docs.jboss.org/weld/reference/latest-2.2/en-US/html/example.html}
- */
-@Entity
+@Entity(name = "users")
 public class User {
+    @Id
+    private String username;
+    private String name;
+    private String password;
 
-    private @NotNull @Length(min=3, max=25) @Id String login;
-
-    private @NotNull @Length(min=6, max=20) String password;
-
-
-    public String getLogin() {
-        return login;
+    public User() {
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String toString() {
+        return "users (username = " + username + ", name = " + name + ")";
     }
+
 }
